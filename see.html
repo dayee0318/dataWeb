@@ -13,7 +13,21 @@
     <h1>Results 📊</h2>
     <p>The results of this project include data visualizations that can be used to understand the findings of the dataset. The project includes word clouds generated from the preprocessed text, which show the most frequent words in the text.</p>
     
-    
+    <div class="options">
+        <button id="option1" onclick="changeImage('result/option1.png')">Option 1</button>
+        <button id="option2" onclick="changeImage('result/option2.png')">Option 2</button>
+        <button id="option3" onclick="changeImage('result/option3.png')">Option 3</button>
+      </div>
+      
+      <div class="image">
+        <img id="displayedImage" src="result/option1.png">
+      </div>
+      
+      <script>
+      function changeImage(imagePath) {
+        document.getElementById('displayedImage').src = imagePath;
+      }
+      </script>
 
 
     <h3>True Result:</h3>
