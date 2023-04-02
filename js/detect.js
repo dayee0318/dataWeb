@@ -3,15 +3,15 @@ function detectButton(button) {
     var p = exampleNews.getElementsByTagName("p")[0];
     var result = exampleNews.getElementsByClassName("result")[0];
     var text = p.textContent || p.innerText;
-    var words = ['fake', 'trump']; // 추가하고 싶은 단어들을 배열로 정의합니다.
-    var wordsCount = Array.from(words, () => 0); // 배열의 요소 수 만큼 0으로 초기화된 배열을 만듭니다.
+    var words = ['featured image', 'pic twitter', 'image via', 'republican', 'getty image', 'told', 'election', 'real', 'president', 'watch', 'obama', 'alway', 'state', 'trump supporter', 'bill clinton', 'happen', 'source', 'americal people', 'clinton campaign', 'true', 'lie', 'guy', 'interview', 'tweet', 'october', 'apparently', 'truth', 'statement', 'mainstream media', 'video', 'reported', 'clinton foundation', 'clearly', '21st century', 'washington post', 'muslim', 'control', 'israel', 'donal j', 'j trump', 'happend', 'countrie', 'liberal', 'situation', 'thank', 'bernie sander', 'note', 'claimed', 'speak', 'citizen', 'cause', 'remember', 'even though', 'racist', 'explain', 'twitter', 'official', 'due', 'fake new', 'west', 'created', 'top', 'maybe', 'talking', 'kid', 'republican party', 'cnn', 'article', 'certainly', 'russian', 'democratic party', 'gop', 'pay', 'answer', 'god', 'cover', 'exactly', 'reality', 'indeed', 'wrong', 'begin', 'decided', 'ginally', 'protester', 'incident', 'lives matter', 'sort', 'war', 'fbi', 'fbi director', 'knew', 'syria', 'hate', 'movement', 'trump realdonaltrump'];
+    var wordsCount = Array.from(words, () => 0); 
     for (var j = 0; j < words.length; j++) {
     wordsCount[j] = (text.match(new RegExp(words[j], 'gi')) || []).length;
     }
-    var total = wordsCount.reduce((a, b) => a + b, 0); // 배열의 모든 요소를 더해 총 개수를 구합니다.
-    if (total >= 5) {
-    result.innerHTML = 'FAKE!';
+    var total = wordsCount.reduce((a, b) => a + b, 0); //Count
+    if (total >= 10) {
+    result.innerHTML = '<span style="color:red;"> FAKE! </span>';
     } else {
-    result.innerHTML = 'TRUE!';
+    result.innerHTML = '<span style="color:green;"> TRUE! </span>';
     }
     }
