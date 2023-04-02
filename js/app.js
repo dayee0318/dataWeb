@@ -32,3 +32,8 @@ option3.addEventListener('click', function() {
   imageContainer.innerHTML = '';
   imageContainer.appendChild(newImg);
 });
+
+function changeContent(url) {
+  var iframe = document.getElementById("displayedContent");
+  iframe.src = url;
+}

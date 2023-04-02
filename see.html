@@ -10,11 +10,15 @@
       <a class="menu-item" href="about.html">ABOUT PROJECT</a>
       <a class="menu-item" href="who.html">WHO WE ARE</a>
       <a class="menu-item" href="see.html">SEE OUR WORK</a>
+      <a class="menu-item" href="Try.html">TRY PROGRAM</a>
     </div>
-    <h1>Results 📊</h2>
-    <p>The results of this project include data visualizations that can be used to understand the findings of the dataset. <br>
-      The project includes word clouds generated from the preprocessed text, which show the most frequent words in the text.</p>
-    
+    <h1>See our works!📊</h1>
+
+    <h2> Regenerated data set 📰</h2>
+    <p>At the heart of our project lies the belief that working collaboratively and efficiently is key to success. To that end, we began by simplifying the data in order to make it more manageable for everyone involved.🙌<br><br> From there, we used various data visualization techniques to better understand our findings, including word clouds generated from preprocessed text that highlight the most frequent words. <br> 
+      These visualizations provide valuable insights into the dataset and serve as powerful tools for analysis and interpretation. 🤝🔍<br><br>
+      Behold, I present to you the chart that I've lovingly regenerated - a visual masterpiece that showcases the top 500 most frequent words in both our fake news and true news datasets. It's like a battle of the words, with the most common contenders fighting for the top spot. Who will emerge victorious? Only time (and data analysis) will tell! 🤓📊
+    </p>
     <style>
       #tableContainer {
         display: flex;
@@ -124,7 +128,12 @@
 </script>
 
 <h2> ☁ The Word Cloud! ☁ </h2>
+<h3> Author: Dayee Lee </h3>
 <p> The table presented above showcases my use of Python's Natural Language Processing (NLP) tools to quantify the most frequently appearing words in the articles. From this data, I generated visually appealing word clouds that offer an intuitive representation of the articles' most significant themes.<br>
+  <br>
+  + Oh no, it looks like there may have been a bit of a hiccup in my program! We suspect there might be some errors in my article_count data, and unfortunately I wasn't able to catch them in time. It's a bummer that some of my freq counts are consistently higher than our article counts - it's like the numbers are playing a game of limbo, and they keep going lower and lower, even when they're not supposed to! 🤔🔢 <br><br>
+  But hey, we're not perfect, and sometimes even the best of us miss a few things. The important thing is that we keep learning and improving, and strive to do better next time. Who knows, maybe we'll even look back on this and laugh - after all, every mistake is just a chance to learn and grow! 😅🌱<br>
+  I'll keep work on this to solve this problem in the near future! 💪<br>
 </p>
 
 <style>
@@ -157,24 +166,23 @@
   </div>
 </div>
 
-
-
-<p>Based on the quantified data, our data analysts have analyzed and visualized the data in their own creative ways. Click the buttons below to see how we've analyzed the data in unique and innovative ways! ✨📊</p>
-    <div class="options">
-        <button id="option1" onclick="changeImage('result/option1.png')">Option 1</button>
-        <button id="option2" onclick="changeImage('result/option2.png')">Option 2</button>
-        <button id="option3" onclick="changeImage('result/option3.png')">Option 3</button>
-      </div>
-      
-      <div class="image">
-        <img id="displayedImage" src="result/option1.png">
-      </div>
-      
-      <script>
-      function changeImage(imagePath) {
-        document.getElementById('displayedImage').src = imagePath;
+  <script>
+      function changeContent(url) {
+          var iframe = document.getElementById("displayedContent");
+          iframe.src = url;
       }
-      </script>
+  </script>
 
-    </body>
+  <p>Based on the quantified data, our data analysts have analyzed and visualized the data in their own creative ways. Click the buttons below to see how we've analyzed the data in unique and innovative ways! ✨📊</p>
+  <div class="options">
+      <button id="option1" onclick="changeContent('result/option1.html')">Strong Word Analysis</button>
+      <button id="option2" onclick="changeContent('result/option2.html')">Frequency Word Analysis</button>
+      <button id="option3" onclick="changeContent('result/option3.html')">Interesting Facts</button>
+  </div>
+  
+  <div class="content">
+      <iframe id="displayedContent" src="result/option1.html" style="width: 100%; height: 500px; border: none;"></iframe>
+  </div>
+</body>
+
 </html>
