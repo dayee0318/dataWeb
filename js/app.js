@@ -1,18 +1,18 @@
-// 각 버튼 선택
+// select each button
 const option1 = document.getElementById('option1');
 const option2 = document.getElementById('option2');
 const option3 = document.getElementById('option3');
 
-// 이미지 컨테이너 선택
+// select each image container
 const imageContainer = document.getElementById('image-container');
 
-// 버튼 클릭 이벤트 핸들러 함수
+// button click event handler
 option1.addEventListener('click', function() {
-  // 새로운 이미지 생성
+  // create new image
   const newImg = document.createElement('img');
   newImg.src = 'path/to/option1/image.png';
   
-  // 이미지 컨테이너에 새로운 이미지 추가
+  // add new image in image container
   imageContainer.innerHTML = '';
   imageContainer.appendChild(newImg);
 });

@@ -5,14 +5,161 @@
         <link rel="stylesheet" type="text/css" href="style.css">
       </head>
   <body>
+
     <div class="menu-bar">
       <a class="menu-item" href="about.html">ABOUT PROJECT</a>
       <a class="menu-item" href="who.html">WHO WE ARE</a>
       <a class="menu-item" href="see.html">SEE OUR WORK</a>
     </div>
     <h1>Results 📊</h2>
-    <p>The results of this project include data visualizations that can be used to understand the findings of the dataset. The project includes word clouds generated from the preprocessed text, which show the most frequent words in the text.</p>
+    <p>The results of this project include data visualizations that can be used to understand the findings of the dataset. <br>
+      The project includes word clouds generated from the preprocessed text, which show the most frequent words in the text.</p>
     
+    <style>
+      #tableContainer {
+        display: flex;
+        justify-content: center;
+      }
+    
+      table {
+        margin: 10px;
+      }
+    
+      #hideCsv {
+        display: none;
+      }
+    </style>
+    
+    <div class="options">
+      <button id="showCsv" onclick="showTable()">Show Result</button>
+      <button id="hideCsv" onclick="hideTable()">Hide Result</button>
+    </div>
+    
+    <div id="tableContainer"></div>
+    
+    <script>
+    let tableShown = false;
+    
+    function showTable() {
+      
+      // get 2 .csv files
+      fetch('result/trueData.csv')
+        .then(response => response.text())
+        .then(data1 => {
+          fetch('result/fakeData.csv')
+            .then(response => response.text())
+            .then(data2 => {
+              // create tables
+              const table1 = createTable(data1, 'True Data');
+              const table2 = createTable(data2, 'Fake Data');
+        
+              // show tables side by side
+              const tableContainer = document.getElementById('tableContainer');
+              tableContainer.innerHTML = '';
+              tableContainer.appendChild(table1);
+              tableContainer.appendChild(table2);
+    
+              // show hide button
+              const hideButton = document.getElementById('hideCsv');
+              hideButton.style.display = 'inline-block';
+              document.getElementById('showCsv').style.display = 'none';
+    
+              tableShown = true;
+            });
+        });
+    }
+    
+    function hideTable() {
+      const tableContainer = document.getElementById('tableContainer');
+      tableContainer.innerHTML = '';
+    
+      // hide hide button
+      const hideButton = document.getElementById('hideCsv');
+      hideButton.style.display = 'none';
+      document.getElementById('showCsv').style.display = 'inline-block';
+    
+      tableShown = false;
+    }
+    
+    function createTable(data, title) {
+  const rows = data.split('\n');
+  const table = document.createElement('table');
+  table.style.borderCollapse = 'collapse';
+
+  // add title row
+  const titleRow = table.insertRow();
+  titleRow.classList.add('gray-header');
+  const titleCell = titleRow.insertCell();
+  titleCell.colSpan = rows[0].split(',').length;
+  titleCell.style.fontWeight = 'bold';
+  titleCell.style.fontSize = '20px'; // Title font size increased to 20px
+  titleCell.textContent = title;
+
+  // add header row
+  const headerRow = table.insertRow();
+  const headers = rows[0].split(',');
+  for (let h = 0; h < headers.length; h++) {
+    const headerCell = headerRow.insertCell();
+    headerCell.style.fontWeight = 'bold'; // make headers bold
+    headerCell.textContent = headers[h];
+  }
+
+  for (let i = 1; i < rows.length; i++) { // start loop from index 1, skip headers
+    const cols = rows[i].split(',');
+    if (cols[0] === 'NaN') continue; // ignore NaN row
+    const row = table.insertRow();
+    for (let j = 0; j < cols.length; j++) {
+      const cell = row.insertCell();
+      cell.style.border = '1px dotted black black';
+      if (j === cols.length - 1) {
+        cell.textContent = parseInt(cols[j]);
+      } else {
+        cell.textContent = cols[j];
+      }
+    }
+  }
+
+  return table;
+}
+</script>
+
+<h2> ☁ The Word Cloud! ☁ </h2>
+<p> The table presented above showcases my use of Python's Natural Language Processing (NLP) tools to quantify the most frequently appearing words in the articles. From this data, I generated visually appealing word clouds that offer an intuitive representation of the articles' most significant themes.<br>
+</p>
+
+<style>
+  #images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .result-image {
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .result-title {
+    font-size: 24px;
+    text-align: center;
+  }
+</style>
+
+<div id="images">
+  <div>
+    <h3 class="result-title">True Result</h3>
+    <img src="../result/trueCloud.png" alt="True Result" class="result-image">
+  </div>
+  <div>
+    <h3 class="result-title">Fake Result</h3>
+    <img src="../result/fakeCloud.png" alt="Fake Result" class="result-image">
+  </div>
+</div>
+
+
+
+<p>Based on the quantified data, our data analysts have analyzed and visualized the data in their own creative ways. Click the buttons below to see how we've analyzed the data in unique and innovative ways! ✨📊</p>
     <div class="options">
         <button id="option1" onclick="changeImage('result/option1.png')">Option 1</button>
         <button id="option2" onclick="changeImage('result/option2.png')">Option 2</button>
@@ -28,21 +175,6 @@
         document.getElementById('displayedImage').src = imagePath;
       }
       </script>
-
-
-    <h3>True Result:</h3>
-    <p><img src="../result/trueCloud.png" alt="True Result"/></p>
-    <p>Add link to the trueData.csv file</p>
-
-    <h3>Fake Result:</h3>
-    <p><img src="../result/fakeCloud.png" alt="Fake Result"/></p>
-    <p>Add link to the fakeData.csv file</p>
-
-    <h3>Compared Result:</h3>
-    <p><img src="../result/comparedResult.png" alt="Compared Result"/></p>
-    <p>Add link to the comparedData.csv file</p>
-
-
 
     </body>
 </html>

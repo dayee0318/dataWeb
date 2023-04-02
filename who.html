@@ -1,9 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Who we are</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-      </head>
+  <head>
+    <title>Who we are</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+      function copyEmail(email) {
+        const tempInput = document.createElement("input");
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        const tooltip = document.createElement("span");
+        tooltip.innerHTML = "Address copied!";
+        tooltip.style.opacity = "0";
+        tooltip.style.transition = "opacity 0.5s";
+        tooltip.style.backgroundColor = "#555";
+        tooltip.style.color = "#fff";
+        tooltip.style.padding = "5px";
+        tooltip.style.borderRadius = "5px";
+        tooltip.style.position = "absolute";
+        tooltip.style.top = "50%";
+        tooltip.style.left = "50%";
+        tooltip.style.transform = "translate(-50%, -50%)";
+        document.body.appendChild(tooltip);
+        setTimeout(() => {
+          tooltip.style.opacity = "1";
+        }, 100);
+        setTimeout(() => {
+          tooltip.style.opacity = "0";
+        }, 1500);
+      }
+    </script>
+  </head>
   <body>
     <div class="menu-bar">
       <a class="menu-item" href="about.html">ABOUT PROJECT</a>
@@ -11,45 +40,58 @@
       <a class="menu-item" href="see.html">SEE OUR WORK</a>
     </div>
     <h1>Contributors 🙌</h2>
-<ul>
-  <li>
-    <h3>Dayee Lee</h3>
-    <ul>
-      <li>Team Lead, Python developer, Data visualization</li>
-      <li>Developed a Python script to create a word cloud from the data</li>
-      <li>Organized data into an Excel file with numeric values</li>
-      <li>Coordinated the team's efforts!</li>
-      <li><img src="https://img.shields.io/badge/dy0318m@gmail.com-EA4335?style=flat&logo=Gmail&logoColor=fff"/></li>
-    </ul>
-  </li>
-  <li>
-    <h3>Ayoung Lee</h3>
-    <ul>
-      <li>Data analyst (R)</li>
-      <li>Used R to analyze the data in more depth, looking for patterns, correlations, and other insights</li>
-      <li>Collaborated with other team members to identify interesting findings</li>
-      <li><img src="https://img.shields.io/badge/ay-EA4335?style=flat&logo=Gmail&logoColor=fff"/></li>
-    </ul>
-  </li>
-  <li>
-    <h3>Daeun Lee</h3>
-    <ul>
-      <li>Data analyst (R), Presenter</li>
-      <li>Used R to analyze the data in more depth, looking for patterns, correlations, and other insights</li>
-      <li>Collaborated with other team members to identify interesting findings</li>
-      <li>Compiled and synthesized findings into a report and delivered presentations to stakeholders</li>
-      <li><img src="https://img.shields.io/badge/de0930m@gmail.com-EA4335?style=flat&logo=Gmail&logoColor=fff"/></li>
-    </ul>
-  </li>
-  <li>
-    <h3>Youngbin Kim</h3>
-    <ul>
-      <li>Data analyst (R)</li>
-      <li>Used R to analyze the data in more depth, looking for patterns, correlations, and other insights</li>
-      <li>Collaborated with other team members to identify interesting findings</li>
-      <li><img src="https://img.shields.io/badge/yb-EA4335?style=flat&logo=Gmail&logoColor=fff"/></li>
-    </ul>
-  </li>
-</ul>  
-    </body>
-</html>
+      <ul>
+        <li>
+          <h3>Dayee Lee</h3>
+          <h4>👩‍💻 Team Lead, Python developer, Data visualization</h2>
+          <ul>
+            <li>Developed a Python script to create a word cloud from the data</li>
+            <li>Organized data into an Excel file with numeric values</li>
+            <li>Coordinated the team's efforts!</li>
+            <li>
+              <img src="https://img.shields.io/badge/dy0318m@gmail.com-EA4335?style=flat&logo=Gmail&logoColor=fff" 
+                   onclick="copyEmail('dy0318m@gmail.com')"/>
+            </li>            
+            <li><a href="https://www.linkedin.com/in/dayee-lee/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=LinkedIn&logoColor=fff"/></a></li>
+          </ul>
+        </li>
+        <li>
+          <h3>Ayoung Lee</h3>
+          <h4> 🕵️‍♀️ Data analyst (R)</h4>
+          <ul>
+            <li>Used R to analyze the data in more depth, looking for patterns, correlations, and other insights</li>
+            <li>Collaborated with other team members to identify interesting findings</li>
+            <li>
+              <img src="https://img.shields.io/badge/ayoung@gmail.com-EA4335?style=flat&logo=Gmail&logoColor=fff" 
+                   onclick="copyEmail('ayoung@gmail.com')"/>
+            </li>       
+            <li><a href="https://www.linkedin.com/in/dayee-lee/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=LinkedIn&logoColor=fff"/></a></li>
+          </ul>
+        </li>
+        <li>
+          <h3>Daeun Lee</h3>
+          <h4> 🕵️‍♀️ Data analyst (R), Presenter </h4>
+          <ul>
+            <li>Used R to analyze the data in more depth, looking for patterns, correlations, and other insights</li>
+            <li>Collaborated with other team members to identify interesting findings</li>
+            <li>Compiled and synthesized findings into a report and delivered presentations to stakeholders</li>
+            <li>
+              <img src="https://img.shields.io/badge/de0930m@gmail.com-EA4335?style=flat&logo=Gmail&logoColor=fff" 
+                   onclick="copyEmail('de0930m@gmail.com')"/>
+            </li>       
+          </ul>
+        </li>
+        <li>
+          <h3>Youngbin Kim</h3>
+          <h4> 🕵️‍♂️ Data analyst (R)</h4>
+          <ul>
+            <li>Used R to analyze the data in more depth, looking for patterns, correlations, and other insights</li>
+            <li>Collaborated with other team members to identify interesting findings</li>
+            <li>
+              <img src="https://img.shields.io/badge/Youngbin.kim1@ucalgary.ca-0098FF?style=flat&logo=Microsoft Outlook&logoColor=fff" 
+                   onclick="copyEmail('Youngbin.kim1@ucalgary.ca')"/>
+            </li>
+            <li><a href="https://www.linkedin.com/in/youngbin-kim-883669246" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=LinkedIn&logoColor=fff"/></a></li>
+          </ul>
+        </li>
+         
